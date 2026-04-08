@@ -24,6 +24,18 @@ if (menuToggle) {
   });
 }
 
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      if (menuToggle) {
+        menuToggle.textContent = '☰';
+      }
+    }
+  });
+});
+
 const thankYouModal = document.querySelector('.thank-you-modal');
 const modalClose = document.querySelector('.modal-close');
 const modalAction = document.querySelector('.modal-action');

@@ -689,14 +689,46 @@ blockquote footer {
 @media (max-width: 780px) {
   .topbar {
     padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .nav-links {
     display: none;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(10, 12, 26, 0.95);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    grid-auto-flow: row;
+    gap: 0.75rem;
+  }
+
+  .nav-links.open {
+    display: grid;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
   }
 
   .menu-toggle {
     display: inline-flex;
+    margin-left: auto;
   }
 
   .hero h1 {
