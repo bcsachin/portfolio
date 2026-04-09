@@ -236,6 +236,42 @@
     </div>
   </div>
 
+  <div class="chat-widget chat-collapsed" aria-label="Chat bot widget">
+    <div class="chat-header" id="chatDragHandle">
+      <div>
+        <div class="chat-title">Portfolio Chat</div>
+        <div class="chat-subtitle">Ask about experience, joining, or Sachin.</div>
+      </div>
+      <button type="button" class="chat-toggle" id="chatToggle" aria-label="Toggle chat window">+</button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          <div class="message-content">
+            Hi! You can ask me:
+            <ul>
+              <li>How soon can you join my company?</li>
+              <li>Tell me about Sachin</li>
+              <li>What is your experience?</li>
+              <li>Give me key areas of your expertise</li>
+            </ul>
+            Or type any other question and press Send.
+          </div>
+        </div>
+      </div>
+      <div class="chat-quick-actions" id="chatQuickActions">
+        <button type="button" class="chat-quick-btn">How soon can you join my company?</button>
+        <button type="button" class="chat-quick-btn">Tell me about Sachin</button>
+        <button type="button" class="chat-quick-btn">What is your experience?</button>
+        <button type="button" class="chat-quick-btn">Give me key area of your expertise</button>
+      </div>
+    </div>
+    <div class="chat-footer">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ask a question..." aria-label="Chat question input" />
+      <button type="button" class="btn btn-primary chat-send" id="chatSend">Send</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

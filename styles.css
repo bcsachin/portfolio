@@ -650,6 +650,219 @@ blockquote footer {
   width: 100%;
 }
 
+.chat-widget {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: min(360px, 94vw);
+  max-height: 76vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: rgba(10, 12, 24, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  z-index: 60;
+  transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
+}
+
+.chat-widget.chat-collapsed {
+  width: 260px;
+  max-height: none;
+  min-height: auto;
+}
+
+.chat-widget.chat-collapsed .chat-body,
+.chat-widget.chat-collapsed .chat-footer {
+  display: none;
+}
+
+.chat-widget.chat-collapsed .chat-title {
+  font-size: 1rem;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 0.75rem;
+  cursor: grab;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-header:active {
+  cursor: grabbing;
+}
+
+.chat-toggle {
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8f9ff;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.chat-widget.chat-open {
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%);
+}
+
+.chat-widget.chat-collapsed {
+  width: 260px;
+  max-height: none;
+  min-height: auto;
+
+  position: fixed;
+  right: 1.5rem !important;
+  bottom: 1.5rem !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.chat-toggle:hover,
+.chat-toggle:focus-visible {
+  background: rgba(124, 92, 255, 0.18);
+}
+
+.chat-title {
+  font-weight: 700;
+  color: #fff;
+}
+
+.chat-subtitle {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.chat-body {
+  padding: 0.75rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  overflow: hidden;
+}
+
+.chat-messages {
+  display: grid;
+  gap: 0.75rem;
+  overflow-y: auto;
+  max-height: 40vh;
+  padding-right: 0.25rem;
+}
+
+.message {
+  display: flex;
+}
+
+.message-content {
+  padding: 1rem;
+  border-radius: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 100%;
+}
+
+.message-content p {
+  margin: 0 0 0.5rem;
+}
+
+.message-content ol,
+.message-content ul {
+  margin: 0.5rem 0 0 1.1rem;
+  padding-left: 1rem;
+}
+
+.message-content li {
+  margin-bottom: 0.35rem;
+}
+
+.message.bot .message-content {
+  background: rgba(124, 92, 255, 0.14);
+  border: 1px solid rgba(124, 92, 255, 0.2);
+  color: #eaf0ff;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user .message-content {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.chat-quick-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+.chat-quick-btn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7f8ff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.chat-quick-btn:hover,
+.chat-quick-btn:focus-visible {
+  background: rgba(124, 92, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.chat-footer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0 1rem 1rem;
+}
+
+.chat-input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0.95rem 1rem;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: rgba(124, 92, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.08);
+}
+
+.chat-send {
+  white-space: nowrap;
+}
+
+@media (max-width: 780px) {
+  .chat-widget {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: min(100%, 94vw);
+    max-height: 72vh;
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
