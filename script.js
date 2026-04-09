@@ -181,6 +181,19 @@ function formatChatText(text) {
   return formatted;
 }
 
+// Scroll latest message into view (aligned to TOP)
+function scrollToLatestMessage() {
+  const messages = document.getElementById("chatMessages");
+  const lastMessage = messages.lastElementChild;
+
+  if (lastMessage) {
+    lastMessage.scrollIntoView({
+      behavior: "smooth",
+      block: "start" // 👈 THIS makes it appear at TOP
+    });
+  }
+}
+
 function appendMessage(role, text) {
   const message = document.createElement('div');
   message.className = `message ${role}`;
@@ -235,6 +248,7 @@ async function sendChatQuestion(question) {
     }
 
     appendMessage('bot', answer);
+    scrollToLatestMessage();
   } catch (error) {
     loadingMessage.remove();
     console.error('Chat request failed:', error);

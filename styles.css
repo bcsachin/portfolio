@@ -970,3 +970,57 @@ blockquote footer {
     max-width: 300px;
   }
 }
+/* ===== FIX SMALL READABLE AREA (PROPER SOLUTION) ===== */
+
+/* Make chat bigger when open */
+.chat-widget:not(.chat-collapsed) {
+  width: min(520px, 96vw) !important;
+  height: 80vh !important;
+  max-height: 80vh !important;
+}
+
+/* Make body take full space */
+.chat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Messages should take MOST space */
+.chat-messages {
+  flex: 1;
+  max-height: none !important;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Reduce quick buttons space (they eat space) */
+.chat-quick-actions {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* Footer fixed height */
+.chat-footer {
+  margin-top: auto;
+}
+
+/* Improve readability */
+.message-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  padding: 1.1rem 1.2rem;
+}
+
+/* Mobile optimization */
+@media (max-width: 780px) {
+  .chat-widget:not(.chat-collapsed) {
+    width: 100% !important;
+    height: 85vh !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    border-radius: 16px 16px 0 0;
+  }
+}
